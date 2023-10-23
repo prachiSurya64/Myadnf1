@@ -1,0 +1,37 @@
+/* Custom CSS */
+.custom-modal {
+  font-family: "Arial", sans-serif;
+  color: #333;
+  /* Add more styles as needed */
+}
+/* Custom animation for the Slide component */
+.ant-slide-up-enter,
+.ant-slide-down-leave {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.ant-slide-up-enter-active,
+.ant-slide-down-leave-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s, transform 0.5s;
+}
+/* CSS for the slide-in animation */
+.slide-enter {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.slide-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s, transform 0.5s;
+}
+.slide-exit {
+  opacity: 1;
+}
+.slide-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s, transform 0.5s;
+}

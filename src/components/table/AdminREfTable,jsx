@@ -1,0 +1,76 @@
+
+import { Table, Space, Button, Popconfirm, message, Input } from "antd";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+
+const AdminREfTable = ({ data, handleEdit, handleDelete,showModal }) => {
+  const columns = [
+     {
+      title: "ID",
+      dataIndex: "id",
+      width: 80,
+    },
+    {
+      title: "NAME",
+      dataIndex: "name",
+      width: 200,
+      render: (text, record) => (
+        <span onClick={() => showModal(record)}>{text}</span>
+      ),
+    },
+    {
+      title: "CREATE AT",
+      dataIndex: "created",
+      width: 100,
+      align: "right",
+    },
+    {
+      title: "STATUS",
+      dataIndex: "status",
+      width: 80,
+      align: "right",
+    },
+    {
+      title: "FLAG",
+      dataIndex: "flag",
+      width: 80,
+      align: "right",
+    },
+    {
+      title: "OPERATIONS",
+      dataIndex: "operations",
+      width: 150,
+      align: "right",
+      render: (_, record) => (
+        <Space>
+          <Button icon={<EditOutlined />} onClick={() => handleEdit(record)}>
+            Edit
+          </Button>
+              {/* ... Other operations ... */}
+               <Popconfirm
+            title="Are you sure you want to delete this item?"
+            onConfirm={() => handleDelete(record.key)}
+            okText="Yes"
+            cancelText="No"
+          >
+            <Button
+              icon={<DeleteOutlined />}
+              danger
+              style={{
+                backgroundColor: "#A52A2A",
+                color: "black",
+              }}
+            >
+              Delete
+            </Button>
+          </Popconfirm>
+        </Space>
+      ),
+    },
+  ];
+
+  return (
+    <Table columns={columns} dataSource={data} pagination={true} />
+  );
+};
+
+export default AdminREfTable;
