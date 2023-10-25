@@ -10,11 +10,12 @@ import {
 } from "@ant-design/icons";
 import { Card, Space, Statistic,Row,Col } from "antd";
 import Typography from "antd/es/typography/Typography";
-import DemoLines from "../../components/DemoLines";
-import DemoColumns from "../../components/DemoColumns";
-import DemoRose from "../../components/DemoRoseChart";
-import DemoGauge from "../../components/DemoGauge";
-import DemoRadar from "../../components/DemoArea";
+import DemoLines from "../../components/table/DemoLines";
+import DemoColumns from "../../components/table/DemoColumns";
+import DemoRose from "../../components/table/DemoRoseChart";
+import DemoGauge from "../../components/table/DemoGauge";
+import DemoRadar from "../../components/table/DemoArea";
+
 // import DemoArea from "../../components/DemoArea";
 
 function Dashboard() {

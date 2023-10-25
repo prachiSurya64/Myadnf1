@@ -1,6 +1,6 @@
 
 // import { Rose } from '@ant-design/plots';
-import StyledRose from '../themes/StyledRose';
+import StyledRose from "../../themes/StyledRose";
 
 function DemoRose() {
   const data = [
