@@ -1,3 +1,7 @@
+
+
+
+
 import { useState } from "react";
 import {
   Button,
@@ -24,6 +28,7 @@ import {
   DownloadOutlined,
   HomeFilled,
 } from "@ant-design/icons";
+import antdThemeConfig from "../../components/common/antdThemeConfig";
 
 const Features = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
@@ -31,7 +36,7 @@ const Features = () => {
   const [data, setData] = useState([]);
   const [editingRecord, setEditingRecord] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  const { components } = antdThemeConfig;
   if (data.length === 0) {
     for (let i = 0; i < 46; i++) {
       data.push({
@@ -135,9 +140,10 @@ const Features = () => {
         <Space>
           <Button
             style={{
-              backgroundColor: "#9FE2BF",
-              color: "black",
-              borderRadius: "50px",
+              backgroundColor: components.Button.colorSuccess.main,
+              color: components.Button.colorPrimary.colorText,
+              borderRadius: components.borderRadius,
+              border:"none"
             }}
             icon={<EditOutlined />}
             onClick={() => handleEdit(record)}
@@ -152,9 +158,10 @@ const Features = () => {
               icon={<DeleteOutlined />}
               danger
               style={{
-                backgroundColor: "#953553",
-                color: "white",
-                borderRadius: "50px",
+                backgroundColor: components.Button.colorPrimary.main,
+                color: components.Button.colorPrimary.colorText,
+                borderRadius: components.borderRadius,
+                border:"none"
               }}
             ></Button>
           </Popconfirm>
@@ -211,7 +218,7 @@ const Features = () => {
   );
   return (
     <div>
-      <Typography.Title level={4}>
+      <Typography.Title level={4} style={{ color: "#68437E" }}>
         <HomeFilled />
         &nbsp; Dashboard /RealState-Features
       </Typography.Title>
@@ -221,13 +228,23 @@ const Features = () => {
           onClick={start}
           disabled={!hasSelected}
           loading={loading}
-          style={{ backgroundColor: "#4B9CD3", color: "white" }}
+          style={{
+            backgroundColor: components.Button.colorSuccess.main,
+            color: components.Button.colorSuccess.colorText,
+            borderRadius: components.borderRadius,
+          }}
         >
           <ReloadOutlined />
           Reload
         </Button>
         <Dropdown overlay={exportMenu}>
-          <Button style={{ backgroundColor: "#4B9CD3", color: "white" }}>
+          <Button
+            style={{
+              backgroundColor: components.Button.colorSuccess.main,
+              color: components.Button.colorSuccess.colorText,
+              borderRadius: components.borderRadius,
+            }}
+          >
             <DownloadOutlined /> Export
           </Button>
         </Dropdown>
@@ -235,13 +252,23 @@ const Features = () => {
         <span style={{ marginLeft: "auto" }}>
           <Space>
             <Dropdown overlay={bulkActionsMenu}>
-              <Button className="hover-button">
+              <Button
+                className="hover-button"
+                style={{
+                  borderColor: components.Input.activeBorderColor,
+                  borderRadius: components.Input.borderRadius,
+                }}
+              >
                 Bulk Actions
                 <CaretDownOutlined />
               </Button>
             </Dropdown>
             <Button
-              style={{ backgroundColor: "#4B9CD3", color: "white" }}
+              style={{
+                backgroundColor: components.Button.colorSuccess.main,
+                color: components.Button.colorSuccess.colorText,
+                borderRadius: components.borderRadius,
+              }}
               icon={<FilterOutlined />}
             >
               Filter
@@ -270,10 +297,26 @@ const Features = () => {
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={[
-          <Button key="cancel" onClick={handleCancel}>
+          <Button
+            key="cancel"
+            onClick={handleCancel}
+            style={{
+              backgroundColor: components.Button.colorSuccess.main,
+              color: components.Button.colorSuccess.colorText,
+              borderRadius: components.borderRadius,
+            }}
+          >
             Cancel
           </Button>,
-          <Button key="save" type="primary" onClick={handleSave}>
+          <Button
+            key="save"
+            onClick={handleSave}
+            style={{
+              backgroundColor: components.Button.colorPrimary.main,
+              color: components.Button.colorPrimary.colorText,
+              borderRadius: components.borderRadius,
+            }}
+          >
             Save
           </Button>,
         ]}

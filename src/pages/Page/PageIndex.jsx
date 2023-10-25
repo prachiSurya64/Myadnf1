@@ -1,3 +1,6 @@
+
+
+
 import { useState } from "react";
 import {
   Button,
@@ -14,6 +17,7 @@ import {
   DeleteOutlined,
   ReloadOutlined,
 } from "@ant-design/icons";
+import antdThemeConfig from "../../components/common/antdThemeConfig";
 
 const PageIndex = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
@@ -21,7 +25,7 @@ const PageIndex = () => {
   const [data, setData] = useState([]);
   const [editingRecord, setEditingRecord] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  const { components } = antdThemeConfig;
   if (data.length === 0) {
     for (let i = 0; i < 46; i++) {
       data.push({
@@ -103,12 +107,15 @@ const PageIndex = () => {
       render: (_, record) => (
         <Space>
           <Button
-            style={{ backgroundColor: "#355E3B", color: "black" }}
+            style={{
+              backgroundColor: components.Button.colorSuccess.main,
+              color: components.Button.colorPrimary.colorText,
+              borderRadius: components.borderRadius,
+              border: "none",
+            }}
             icon={<EditOutlined />}
             onClick={() => handleEdit(record)}
-          >
-            Edit
-          </Button>
+          ></Button>
           <Popconfirm
             title="Are you sure you want to delete this item?"
             onConfirm={() => handleDelete(record.key)}
@@ -118,10 +125,13 @@ const PageIndex = () => {
             <Button
               icon={<DeleteOutlined />}
               danger
-              style={{ backgroundColor: "#A52A2A", color: "black" }}
-            >
-              Delete
-            </Button>
+              style={{
+                backgroundColor: components.Button.colorPrimary.main,
+                color: components.Button.colorPrimary.colorText,
+                borderRadius: components.borderRadius,
+                border: "none",
+              }}
+            ></Button>
           </Popconfirm>
         </Space>
       ),
@@ -154,7 +164,9 @@ const PageIndex = () => {
 
   return (
     <div>
-      <Typography.Title level={4}>
+      <Typography.Title level={4} 
+      // style={{fontFamily:components.typography.fontFamily,fontSize:components.typography.fontSize,fontWeight:components.typography.fontWeight}}
+      >
         <b>Dashboard /PageIndex</b>
       </Typography.Title>
       <div style={{ marginBottom: 16, display: "flex", alignItems: "center" }}>
@@ -163,7 +175,11 @@ const PageIndex = () => {
           onClick={start}
           disabled={!hasSelected}
           loading={loading}
-          style={{ backgroundColor: "#4B9CD3", color: "blue" }}
+          style={{
+            backgroundColor: components.Button.colorSuccess.main,
+            color: components.Button.colorPrimary.colorText,
+            borderRadius: components.borderRadius,
+          }}
         >
           <ReloadOutlined />
           Reload
@@ -191,10 +207,27 @@ const PageIndex = () => {
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={[
-          <Button key="cancel" onClick={handleCancel}>
+          <Button
+            key="cancel"
+            onClick={handleCancel}
+            style={{
+              backgroundColor: components.Button.colorSuccess.main,
+              color: components.Button.colorSuccess.colorText,
+              borderRadius: components.borderRadius,
+            }}
+          >
             Cancel
           </Button>,
-          <Button key="save" type="primary" onClick={handleSave}>
+          <Button
+            key="save"
+            type="primary"
+            onClick={handleSave}
+            style={{
+              backgroundColor: components.Button.colorPrimary.main,
+              color: components.Button.colorPrimary.colorText,
+              borderRadius: components.borderRadius,
+            }}
+          >
             Save
           </Button>,
         ]}

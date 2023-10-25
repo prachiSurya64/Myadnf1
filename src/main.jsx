@@ -12,21 +12,23 @@
 //     </BrowserRouter>
 //   </React.StrictMode>
 // );
-
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App.jsx";
 import "./index.css";
-import { ThemeProvider } from "antd";
-import Themes from "../src/styles/Themes.jsx";
+
 import { BrowserRouter } from "react-router-dom";
+import { ConfigProvider } from "antd";
+import antdThemeConfig from "./components/common/antdThemeConfig.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider theme={Themes}>
+      {/* <ConfigProvider {...antdThemeConfig}> */}
+      <ConfigProvider theme={antdThemeConfig.theme}   >
+      
         <App />
-      </ThemeProvider>
+      </ConfigProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

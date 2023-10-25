@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Modal, Button, Input, Select, DatePicker } from "antd";
 import PropTypes from "prop-types";
+import antdThemeConfig from "../common/antdThemeConfig";
+// import ThemedButton from '../../../src/themes/Buttons'
 
 const { Option } = Select;
 
@@ -59,22 +61,41 @@ const TestimonialFilterForm = ({ visible, onCancel, onFilter }) => {
     setResetVisible(true);
   };
 
+  const {components} =antdThemeConfig
   return (
     <Modal
+    
       title="Filter Testimonials"
       visible={visible}
       onCancel={onCancel}
       footer={[
-        <Button key="cancel" onClick={onCancel}>
+        <Button key="cancel" onClick={onCancel} 
+        // type='text'
+         style={{ 
+               
+              // color: components.Button.colorSuccess.colorText,
+              borderRadius: components.Button.borderRadius,
+              borderColor: components.Button.colorBorder.main,
+             }}
+             >
           Cancel
         </Button>,
-        <Button key="filter" type="primary" onClick={handleFilter}>
+        <Button
+         type='primary' 
+         key="filter"  onClick={handleFilter}
+         style={{ 
+                backgroundColor: components.Button.colorPrimary.main,
+              color: components.Button.colorPrimary.colorText,
+              borderRadius: components.Button.borderRadius,
+              border: "none",}}
+              >
           Apply
         </Button>,
       ]}
     >
       {fields.map((field) => (
-        <div key={field.id} style={{ marginBottom: 10 }}>
+        <div key={field.id} style={{ marginBottom: 10 ,borderRadius: components.Input.borderRadius,
+                  color:components.colorPrimary.main, }}>
           <Select
             value={field.fieldName}
             onChange={(value) => handleFieldChange(field.id, value)}
@@ -89,9 +110,9 @@ const TestimonialFilterForm = ({ visible, onCancel, onFilter }) => {
           <Select
             value={field.isEquals}
             onChange={(value) => handleIsEqualsChange(field.id, value)}
-            style={{ width: 100, marginRight: 10 }}
+            style={{ width: 100, marginRight: 10 , }}
           >
-            <Option value="equals">Is Equals to</Option>
+            <Option value="equals" >Is Equals to</Option>
             <Option value="contains">Contains</Option>
             <Option value="not-equals">Greater Then</Option>
             <Option value="not-contains">Less Then</Option>
@@ -107,14 +128,19 @@ const TestimonialFilterForm = ({ visible, onCancel, onFilter }) => {
               placeholder="Value"
               value={field.value}
               onChange={(e) => handleValueChange(field.id, e.target.value)}
-              style={{ width: 150, marginRight: 10 }}
+             
+              style={{width: 150, marginRight: 10 ,
+                // borderColor: components.Input.activeBorderColor,
+                  borderRadius: components.Input.borderRadius,
+                  color:components.colorPrimary.main,
+                  }}
             />
           )}
         </div>
       ))}
-      <Button onClick={handleAddFilter}>Add another filter</Button>
+      <Button type='text' onClick={handleAddFilter}>Add another filter</Button>
       {resetVisible && (
-        <Button onClick={handleReset} style={{ marginLeft: 10 }}>
+        <Button  type='test'onClick={handleReset} style={{ marginLeft: 10 }}>
           Reset
         </Button>
       )}
@@ -129,3 +155,10 @@ TestimonialFilterForm.propTypes = {
 };
 
 export default TestimonialFilterForm;
+
+
+
+
+
+
+

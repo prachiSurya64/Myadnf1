@@ -24,6 +24,7 @@ import {
 
 import FacilityForm from "../../components/forms/FacilityForm";
 import TestimonialFilterForm from "../../components/forms/TestimonialFilterForm";
+import antdThemeConfig from "../../components/common/antdThemeConfig";
 
 const Facility = () => {
   const [loading, setLoading] = useState(false);
@@ -33,7 +34,7 @@ const Facility = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [isFilterFormVisible, setIsFilterFormVisible] = useState(false);
-
+  const { components } = antdThemeConfig;
   if (data.length === 0) {
     for (let i = 0; i < 46; i++) {
       data.push({
@@ -120,9 +121,10 @@ const Facility = () => {
         <Space>
           <Button
             style={{
-              backgroundColor: "#9FE2BF",
-              color: "black",
-              borderRadius: "50px",
+              backgroundColor: components.Button.colorSuccess.main,
+              color: components.Button.colorPrimary.colorText,
+              borderRadius: components.borderRadius,
+              border: "none",
             }}
             icon={<EditOutlined />}
             onClick={() => handleEdit(record)}
@@ -137,9 +139,10 @@ const Facility = () => {
               icon={<DeleteOutlined />}
               danger
               style={{
-                backgroundColor: "#953553",
-                color: "white",
-                borderRadius: "50px",
+                backgroundColor: components.Button.colorPrimary.main,
+                color: components.Button.colorPrimary.colorText,
+                borderRadius: components.borderRadius,
+                border: "none",
               }}
             ></Button>
           </Popconfirm>
@@ -215,10 +218,11 @@ const Facility = () => {
   return (
     <div>
       <div>
-        <Typography.Title level={4}>
+        <Typography.Title level={4} style={{ color: "#68437E" }}>
           <HomeFilled />
           &nbsp; Dashboard /RealState-Facilities
         </Typography.Title>
+        
         <div
           style={{ marginBottom: 16, display: "flex", alignItems: "center" }}
         >
@@ -227,14 +231,22 @@ const Facility = () => {
             onClick={start}
             disabled={!hasSelected}
             loading={loading}
-            style={{ backgroundColor: "#4B9CD3", color: "white" }}
+            style={{
+              backgroundColor: components.Button.colorSuccess.main,
+              color: components.Button.colorSuccess.colorText,
+              borderRadius: components.borderRadius,
+            }}
           >
             <ReloadOutlined />
             Reload
           </Button>
 
           <Button
-            style={{ backgroundColor: "#4B9CD3", color: "white" }}
+            style={{
+              backgroundColor: components.Button.colorSuccess.main,
+              color: components.Button.colorSuccess.colorText,
+              borderRadius: components.borderRadius,
+            }}
             onClick={showForm} // Show the form when the button is clicked
           >
             <PlusSquareOutlined /> Create
@@ -243,13 +255,24 @@ const Facility = () => {
           <span style={{ marginLeft: "auto" }}>
             <Space>
               <Dropdown overlay={bulkActionsMenu}>
-                <Button className="hover-button">
+                <Button
+                  className="hover-button"
+                  style={{
+                  borderColor: components.Input.activeBorderColor,
+                  borderRadius: components.Input.borderRadius,
+                  color:components.colorPrimary.main,
+                  }}
+                >
                   Bulk Actions
                   <CaretDownOutlined />
                 </Button>
               </Dropdown>
               <Button
-                style={{ backgroundColor: "#4B9CD3", color: "white" }}
+                style={{
+                  backgroundColor: components.Button.colorSuccess.main,
+                  color: components.Button.colorSuccess.colorText,
+                  borderRadius: components.borderRadius,
+                }}
                 icon={<FilterOutlined />}
                 onClick={showFilterForm}
               >
@@ -279,10 +302,27 @@ const Facility = () => {
           visible={isModalVisible}
           onCancel={handleCancel}
           footer={[
-            <Button key="cancel" onClick={handleCancel}>
+            <Button
+              key="cancel"
+              onClick={handleCancel}
+              style={{
+                backgroundColor: components.Button.colorSuccess.main,
+                color: components.Button.colorSuccess.colorText,
+                borderRadius: components.borderRadius,
+              }}
+            >
               Cancel
             </Button>,
-            <Button key="save" type="primary" onClick={handleSave}>
+            <Button
+              key="save"
+              onClick={handleSave}
+              style={{
+                backgroundColor: components.Button.colorPrimary.main,
+                color: components.Button.colorPrimary.colorText,
+                borderRadius: components.borderRadius,
+                border: "none",
+              }}
+            >
               Save
             </Button>,
           ]}
@@ -356,6 +396,13 @@ const Facility = () => {
 };
 
 export default Facility;
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 
 // import { useState, useEffect } from "react";
 // import {

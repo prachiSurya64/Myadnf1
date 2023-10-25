@@ -1,5 +1,6 @@
 import { Form, Input, Button, Row, Col, Upload, message, Switch } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
+import antdThemeConfig from "../common/antdThemeConfig";
 
 const AccountsForm = () => {
   const [form] = Form.useForm();
@@ -19,6 +20,7 @@ const AccountsForm = () => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+const {components} =  antdThemeConfig;
 
   return (
     <div style={{ padding: "20px" }}>
@@ -35,7 +37,9 @@ const AccountsForm = () => {
               name="firstName"
               rules={[{ required: true, message: "First Name is required" }]}
             >
-              <Input placeholder="Enter First Name" />
+              <Input placeholder="Enter First Name" 
+                 style={{borderRadius:components.Input.borderRadius}}
+              />
             </Form.Item>
           </Col>
           <Col span={12}>
@@ -44,7 +48,9 @@ const AccountsForm = () => {
               name="lastName"
               rules={[{ required: true, message: "Last Name is required" }]}
             >
-              <Input placeholder="Enter Last Name" />
+              <Input placeholder="Enter Last Name" 
+                 style={{borderRadius:components.Input.borderRadius}}
+              />
             </Form.Item>
           </Col>
         </Row>
@@ -55,7 +61,9 @@ const AccountsForm = () => {
               name="username"
               rules={[{ required: true, message: "Username is required" }]}
             >
-              <Input placeholder="Enter Username" />
+              <Input placeholder="Enter Username" 
+                 style={{borderRadius:components.Input.borderRadius}}
+              />
             </Form.Item>
           </Col>
           <Col span={12}>
@@ -64,7 +72,9 @@ const AccountsForm = () => {
               name="phone"
               //   rules={[{ required: true, message: "Phone is required" }]}
             >
-              <Input placeholder="Enter Phone" />
+              <Input placeholder="Enter Phone" 
+                 style={{borderRadius:components.Input.borderRadius}}
+              />
             </Form.Item>
           </Col>
         </Row>
@@ -78,7 +88,9 @@ const AccountsForm = () => {
                 { type: "email", message: "Invalid email format" },
               ]}
             >
-              <Input placeholder="Enter Email" />
+              <Input placeholder="Enter Email" 
+                 style={{borderRadius:components.Input.borderRadius}}
+              />
             </Form.Item>
           </Col>
           <Col span={12}>
@@ -100,7 +112,9 @@ const AccountsForm = () => {
               name="password"
               rules={[{ required: true, message: "Name is required" }]}
             >
-              <Input placeholder="Enter Password" />
+              <Input placeholder="Enter Password" 
+                 style={{borderRadius:components.Input.borderRadius}}
+              />
             </Form.Item>
           </Col>
           <Col span={12}>
@@ -109,7 +123,9 @@ const AccountsForm = () => {
               name="pass-confirmation"
               rules={[{ required: true, message: "Please select a status" }]}
             >
-              <Input placeholder="Re-Enter Password" />
+              <Input placeholder="Re-Enter Password" 
+                 style={{borderRadius:components.Input.borderRadius}}
+              />
             </Form.Item>
           </Col>
         </Row>
@@ -120,7 +136,9 @@ const AccountsForm = () => {
               name="description"
               rules={[{ required: true, message: "Description is required" }]}
             >
-              <Input.TextArea placeholder="Enter Description" rows={4} />
+              <Input.TextArea placeholder="Enter Description" rows={4} 
+                //  style={{borderRadius:components.Input.borderRadius}}
+              />
             </Form.Item>
           </Col>
           <Col span={12}>
@@ -169,7 +187,9 @@ const AccountsForm = () => {
                 type="primary"
                 htmlType="submit"
                 style={{
-                  backgroundColor: "#68437e",
+                  backgroundColor:   components.Button.colorPrimary.main, 
+                  color:components.Button.colorPrimary.colorText,  
+                  borderRadius: components.borderRadius,
                 }}
               >
                 Save
@@ -178,10 +198,12 @@ const AccountsForm = () => {
                 style={{
                   marginLeft: "15px",
 
-                  backgroundColor: "#5bafa9",
+                  backgroundColor:   components.Button.colorSuccess.main, 
+                  color:components.Button.colorPrimary.colorText,  
+                  borderRadius: components.borderRadius,
                 }}
                 htmlType="button"
-                type="primary"
+                // type="primary"
               >
                 Save & Edit
               </Button>

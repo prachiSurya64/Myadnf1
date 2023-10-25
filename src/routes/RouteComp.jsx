@@ -15,7 +15,7 @@ import Sliders from "../pages/Sliders/Sliders";
 import Contact from "../pages/Contact/Contact";
 import MediaSetting from "../pages/Settings/media";
 import SocialLink from "../pages/Settings/socialLink";
-import SocialLogin from "../pages/Settings/socialLogin";
+import Security from "../pages/Settings/Security";
 import AppliedFlat from "../pages/AppliedFlat/AppliedFlat";
 import DossiersDetails from "../pages/Dossiers/DossiersDetails";
 import AdminRef from "../pages/AdminReferences/AdminRef";
@@ -25,6 +25,9 @@ import FacilityForm from "../components/forms/FacilityForm";
 import Tags from "../pages/Blog/Tags";
 import Catergories from "../pages/Blog/Catergories";
 import Post from "../pages/Blog/Post";
+import General from "../pages/Settings/general";
+import Notifications from "../pages/Settings/Notifications";
+// import General from "../pages/Settings/General";
 // import Blog from "../pages/Blog/Blog";
 
 function RouteComp() {
@@ -48,8 +51,10 @@ function RouteComp() {
     { path: "/sliders", element: <Sliders /> },
     { path: "/contact", element: <Contact /> },
     { path: "/mediasetting", element: <MediaSetting /> },
+    { path: "/general", element: <General/> },
+    { path: "/notification", element: <Notifications/> },
     { path: "/social-link", element: <SocialLink /> },
-    { path: "/social-login", element: <SocialLogin /> },
+    { path: "/security", element: <Security /> },
     { path: "/applied-flat", element: <AppliedFlat /> },
     { path: "/dossier-details", element: <DossiersDetails /> },
     { path: "/admin-ref", element: <AdminRef /> },

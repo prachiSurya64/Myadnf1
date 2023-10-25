@@ -60,8 +60,8 @@ function Login() {
     <>
       <div className="appBg">
         <Form className="loginForm" form={form} onFinish={login}>
-          <Typography.Title style={{ margin: "35px" }}>
-            Welcome Back
+          <Typography.Title  style={{ alignItems:"center" ,marginLeft:"40%",color:"#68437E"}}>
+           Login 
           </Typography.Title>
 
           <Form.Item
@@ -104,7 +104,7 @@ function Login() {
             type="primary"
             htmlType="submit"
             block
-            style={{ width: "80%", alignItems: "center", marginLeft: 35 }}
+            style={{ width: "80%", alignItems: "center", marginLeft: 35, backgroundColor:"#5BAFA9 "}}
           >
             Login
           </Button>
@@ -157,118 +157,3 @@ function Login() {
 
 export default Login;
 
-// import { Button, Divider, Form, Input, Typography, message } from "antd";
-// import "../../styles/Login.css";
-// import {
-//   GoogleOutlined,
-//   FacebookFilled,
-//   TwitterOutlined,
-//   InstagramOutlined,
-//   YoutubeFilled,
-//   LockOutlined,
-//   UserOutlined,
-// } from "@ant-design/icons";
-// import { useState } from "react";
-
-// function Login() {
-//   const [form] = Form.useForm();
-//   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-//   const login = () => {
-//     form
-//       .validateFields()
-//       .then((values) => {
-//         console.log("Form values:", values);
-//         setIsLoggedIn(true);
-//         message.success("Login Successful");
-//         form.resetFields();
-//       })
-//       .catch((error) => {
-//         console.error("Login failed:", error);
-//         message.error("Login failed. Please try again.");
-//       });
-//   };
-
-//   const handleLoginButtonClick = () => {
-//     const email = localStorage.getItem("email");
-//     const password = localStorage.getItem("password");
-
-//     if (email && password) {
-//       message.info(`Stored email: ${email}, Stored password: ${password}`);
-//     } else {
-//       message.info("No data stored in localStorage.");
-//     }
-//   };
-
-//   return (
-//     <>
-//       <div className="appBg">
-//         <Form className="loginForm" form={form} onFinish={login}>
-//           <Typography.Title style={{ margin: "35px" }}>
-//             Welcome Back
-//           </Typography.Title>
-
-//           <Form.Item
-//             rules={[
-//               {
-//                 required: true,
-//                 type: "email",
-//                 message: "Please enter a valid email",
-//               },
-//             ]}
-//             label="Enter-mail"
-//             name="myEmail"
-//             className="label"
-//             style={{ margin: "35px" }}
-//           >
-//             <Input placeholder="Enter your email" prefix={<UserOutlined />} />
-//           </Form.Item>
-
-//           <Form.Item
-//             rules={[
-//               {
-//                 required: true,
-//                 type: "password",
-//                 message: "Enter your password",
-//               },
-//             ]}
-//             label="Password"
-//             name="myPassword"
-//             className="label"
-//             style={{ margin: "35px" }}
-//           >
-//             <Input.Password
-//               placeholder="Enter your password"
-//               prefix={<LockOutlined />}
-//             />
-//           </Form.Item>
-
-//           {/* Set the width of the login button */}
-//           <Button
-//             type="primary"
-//             htmlType="submit"
-//             block
-//             style={{ width: "80%", alignItems: "center", marginLeft: 35 }}
-//           >
-//             Login
-//           </Button>
-
-//           <Divider style={{ borderColor: "black" }}>or Login with</Divider>
-//           <div className="SocialIcons">
-//             <GoogleOutlined className="icons" style={{ color: "skyblue" }} />
-//             <TwitterOutlined className="icons" style={{ color: "teal" }} />
-//             <FacebookFilled className="icons" style={{ color: "blue" }} />
-//             <InstagramOutlined className="icons" style={{ color: "purple" }} />
-//             <YoutubeFilled className="icons" style={{ color: "red" }} />
-//           </div>
-//         </Form>
-//       </div>
-//       {/* Use the && operator instead of & */}
-//       {isLoggedIn && (
-//         <Button onClick={handleLoginButtonClick}>Show Stored Data</Button>
-//       )}
-//     </>
-//   );
-// }
-
-// export default Login;

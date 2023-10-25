@@ -22,6 +22,8 @@ import {
 } from "@ant-design/icons";
 import TestimonialsForm from "../../components/forms/TestimonialsForm";
 import TestimonialFilterForm from "../../components/forms/TestimonialFilterForm";
+import antdThemeConfig from "../../components/common/antdThemeConfig";
+// import ThemedButton from "../../themes/Buttons";
 
 const Testimonials = () => {
   const [isFilterFormVisible, setIsFilterFormVisible] = useState(false);
@@ -31,6 +33,8 @@ const Testimonials = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
+
+  const {components} =antdThemeConfig
 
   if (data.length === 0) {
     for (let i = 0; i < 46; i++) {
@@ -118,27 +122,40 @@ const Testimonials = () => {
       render: (_, record) => (
         <Space>
           <Button
-            style={{ backgroundColor: "#355E3B", color: "black" }}
+          // type='secondary'
+           style={{
+              backgroundColor: components.Button.colorSuccess.main,
+              color: components.Button.colorPrimary.colorText,
+              borderRadius: components.borderRadius,
+              border: "none",
+              ":hover": {
+                backgroundColor: components.Button.colorPrimaryHover.main,
+              },
+            }}
             icon={<EditOutlined />}
             onClick={() => handleEdit(record)}
           >
-            Edit
+       
           </Button>
           <Popconfirm
+          style={{color:components.Popconfirm.colorWarning}}
             title="Are you sure you want to delete this item?"
             onConfirm={() => handleDelete(record.key)}
             okText="Yes"
             cancelText="No"
           >
             <Button
+            // type='primary'
               icon={<DeleteOutlined />}
               danger
               style={{
-                backgroundColor: "#A52A2A",
-                color: "black",
+                backgroundColor: components.Button.colorPrimary.main,
+              color: components.Button.colorPrimary.colorText,
+              borderRadius: components.borderRadius,
+              border: "none",
               }}
             >
-              Delete
+             
             </Button>
           </Popconfirm>
         </Space>
@@ -213,7 +230,7 @@ const Testimonials = () => {
   return (
     <div>
       <div>
-        <Typography.Title level={4}>
+        <Typography.Title level={4} style={{color:"#68437E"}}>
           <HomeFilled />
           &nbsp; Dashboard /Testimonials
         </Typography.Title>
@@ -221,18 +238,24 @@ const Testimonials = () => {
           style={{ marginBottom: 16, display: "flex", alignItems: "center" }}
         >
           <Button
-            type="primary"
+            // type='secondary'
             onClick={start}
             disabled={!hasSelected}
             loading={loading}
-            style={{ backgroundColor: "#4B9CD3", color: "white" }}
+            style={{ backgroundColor: components.Button.colorSuccess.main,
+              color: components.Button.colorPrimary.colorText,
+              borderRadius: components.Button.borderRadius,
+              border: "none",}}
           >
             <ReloadOutlined />
             Reload
           </Button>
 
           <Button
-            style={{ backgroundColor: "#4B9CD3", color: "white" }}
+           style={{ backgroundColor: components.Button.colorSuccess.main,
+              color: components.Button.colorPrimary.colorText,
+              borderRadius: components.Button.borderRadius,
+              border: "none",}}
             onClick={showForm}
           >
             <PlusSquareOutlined /> Create
@@ -240,14 +263,25 @@ const Testimonials = () => {
 
           <span style={{ marginLeft: "auto" }}>
             <Space>
+           
               <Dropdown overlay={bulkActionsMenu}>
-                <Button className="hover-button">
+                <Button className="hover-button"
+                style={{
+                  borderColor: components.Input.activeBorderColor,
+                  borderRadius: components.Input.borderRadius,
+                  color:components.colorPrimary.main,
+                  
+                }}>
                   Bulk Actions
                   <CaretDownOutlined />
                 </Button>
               </Dropdown>
               <Button
-                style={{ backgroundColor: "#4B9CD3", color: "white" }}
+              // type='secondary'
+               style={{ backgroundColor: components.Button.colorSuccess.main,
+              color: components.Button.colorPrimary.colorText,
+              borderRadius: components.Button.borderRadius,
+              border: "none",}}
                 icon={<FilterOutlined />}
                 onClick={showFilterForm}
               >
@@ -351,6 +385,8 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+
+
 
 // import { useState } from "react";
 // import {
